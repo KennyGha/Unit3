@@ -1,0 +1,1 @@
+javascript:if(window.autoRefreshInterval) { clearInterval(window.autoRefreshInterval); }; window.autoRefreshInterval = setInterval(function() { jQuery(".refresh").click(); },300000)
