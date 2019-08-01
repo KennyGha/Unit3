@@ -1,0 +1,19 @@
+import glob
+
+path = './stock'
+
+
+all_files = glob.glob(path + "/*.csv")
+
+li = []
+
+for filename in all_files:
+    try:
+        df = pd.read_csv(filename, index_col=None, header=0)
+        li.append(df)
+    except:
+        print(str(filename))
+    
+df = pd.concat(li, axis=0, ignore_index=True)
+df = df.drop_duplicates()
+df.to_csv('all.csv')
